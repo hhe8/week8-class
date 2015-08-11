@@ -1,0 +1,47 @@
+<h1>Movies
+  <small>
+    <a class="btn btn-success pull-right" href="/movies/new">Add a New Movie</a>
+  </small>
+</h1>
+
+<% if session["history"] %>
+  <p><small><%= link_to "Clear My Viewing History", "#" %></small></p>
+  <div class="recent clearfix">
+    <h4>Your Recently Viewed Items</h4>
+    <% recent_movies = Movie.find(session["history"]) %>
+    <% recent_movies.each do |movie| %>
+      <%= link_to image_tag(movie.poster_url, height: '200px'), movie %>
+    <% end %>
+  </div>
+<% end %>
+
+<p><%= @movies.count %> movies shown.</p>
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th width="30%">Title</th>
+      <th width="30%">Directed By</th>
+      <th>Year</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td>
+          <%= link_to movie.title, "/movies/#{movie.id}" %>
+        </td>
+        <td>
+          <% if movie.director_id != nil %>
+            <%= link_to Director.find_by(:id => movie.director_id).name, "/directors/#{movie.director_id}" %>
+          <% end %>
+        </td>
+        <td><%= movie.year %></td>
+
+        <td><%= link_to "Delete", "/movies/#{movie.id}", :method => "delete" %></td>
+        <td><%= link_to "Edit", "/movies/#{movie.id}/edit" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

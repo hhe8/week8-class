@@ -1,0 +1,26 @@
+User
+  name: string
+  email: string
+  password: string
+  admin: boolean(false)
+  
+Movie
+  title: string
+  year: integer
+  rated: string
+  stars: integer
+  runtime: integer
+  plot: text
+  poster_url: string
+  imdb_key: string
+  director_id: integer
+
+Director
+  name: string
+
+Actor
+  name: string
+
+Role
+  movie_id: integer
+  actor_id: integer
