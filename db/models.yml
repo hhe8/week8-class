@@ -1,9 +1,9 @@
 User
   name: string
   email: string
-  password: string
+  password_digest: string #this adds a attr getter and setter method in the user model
   admin: boolean(false)
-  
+
 Movie
   title: string
   year: integer

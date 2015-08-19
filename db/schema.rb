@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "movies", force: true do |t|
     t.string  "title"
     t.integer "year"
-    t.integer "director_id"
     t.string  "rated"
     t.integer "stars"
     t.integer "runtime"
     t.text    "plot"
     t.string  "poster_url"
     t.string  "imdb_key"
+    t.integer "director_id"
   end
 
   add_index "movies", ["director_id"], name: "index_movies_on_director_id"

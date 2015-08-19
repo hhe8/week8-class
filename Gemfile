@@ -13,3 +13,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'quiet_assets'
 gem 'ez'
+gem 'bcrypt','~> 3.1.7'
